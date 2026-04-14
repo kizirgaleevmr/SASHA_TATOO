@@ -5,6 +5,7 @@ import slide1 from "./assets/gallery/gallery_1.jpeg";
 import slide2 from "./assets/gallery/gallery_2.jpeg";
 import slide3 from "./assets/gallery/gallery_3.jpeg";
 import slide4 from "./assets/gallery/gallery_4.jpeg";
+import siteOrderQr from "./assets/marselmkr.png";
 // Импорт всех JPEG изображений из папки gallery
 //
 
@@ -307,7 +308,22 @@ function App() {
             </section>
 
             <footer className="footer">
-                <p>&copy; 2024 TATOO SALON. Все права защищены.</p>
+                <div className="footer-order">
+                    <div className="footer-order-copy">
+                        <p className="footer-order-kicker">Web Design</p>
+                        <h3>Заказать сайт</h3>
+                        <p>
+                            Если нужен сайт с таким же характером и подачей,
+                            отсканируйте QR-код для связи.
+                        </p>
+                    </div>
+                    <img
+                        src={siteOrderQr}
+                        alt="QR-код для заказа сайта"
+                        className="footer-order-image"
+                    />
+                </div>
+                <p>&copy; SASHADARK.TATTS Все права защищены.</p>
             </footer>
         </>
     );
