@@ -135,6 +135,9 @@ section {
     width: 100%;
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-content h2 {
@@ -178,11 +181,12 @@ section {
 /* Slider */
 .slider {
     width: 100%;
+    max-width: 980px;
     height: clamp(320px, 58vw, 600px);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 
 .slider-btn {
@@ -220,7 +224,17 @@ section {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin: 20px 0;
+    margin: 0;
+}
+
+.hero-caption {
+    width: min(100%, 720px);
+    margin-top: 24px;
+}
+
+.hero-text {
+    margin-top: 18px;
+    margin-bottom: 0;
 }
 
 .dot {
@@ -1020,6 +1034,15 @@ section h2 {
         font-size: 16px;
     }
 
+    .hero-caption {
+        width: 100%;
+        margin-top: 36px;
+    }
+
+    .hero-text {
+        margin-top: 22px;
+    }
+
     .slide-image {
         width: 100%;
         height: 500px;
@@ -1104,6 +1127,14 @@ section h2 {
 
     .slider {
         height: 320px;
+    }
+
+    .hero-caption {
+        margin-top: 42px;
+    }
+
+    .hero-text {
+        margin-top: 24px;
     }
 
     .dot {

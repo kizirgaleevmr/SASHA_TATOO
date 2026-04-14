@@ -119,21 +119,24 @@ function App() {
                             &gt;
                         </button> */}
                     </div>
-                    <div className="slider-dots">
-                        {slides.map((_, index) => (
-                            <span
-                                key={index}
-                                className={`dot ${
-                                    index === currentSlide ? "active" : ""
-                                }`}
-                                onClick={() => setCurrentSlide(index)}
-                            ></span>
-                        ))}
+                    <div className="hero-caption">
+                        <div className="slider-dots">
+                            {slides.map((_, index) => (
+                                <span
+                                    key={index}
+                                    className={`dot ${
+                                        index === currentSlide ? "active" : ""
+                                    }`}
+                                    onClick={() => setCurrentSlide(index)}
+                                ></span>
+                            ))}
+                        </div>
+                        <p className="hero-text fade-in">
+                            Профессиональные татуировки в темном стиле. Опытный
+                            мастер, качественные материалы, индивидуальный
+                            подход.
+                        </p>
                     </div>
-                    <p className="hero-text fade-in">
-                        Профессиональные татуировки в темном стиле. Опытный
-                        мастер, качественные материалы, индивидуальный подход.
-                    </p>
                     {/* <a
                         href={telegramLink}
                         target="_blank"
