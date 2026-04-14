@@ -610,67 +610,63 @@ section h2 {
     text-align: center;
 }
 
-.gallery-section h2 {
-    margin-bottom: 40px;
-    color: #ff0000;
-    font-size: 36px;
-
-    /* max-width: 1200px; */
-    /* margin-left: auto; */
-    /* margin-right: auto; */
-}
-
 .gallery-grid {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
 }
 
-/* Gallery Slider */
-.gallery-slider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+.gallery-lead {
+    max-width: 720px;
+    margin: -12px auto 42px;
+    color: #d8d9df;
+    font-size: 18px;
+    line-height: 1.8;
 }
 
-.gallery-slide {
-    background-color: #333;
-    width: 1240px;
-    height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 14px;
+.gallery-card {
+    position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    min-height: 360px;
+    border-radius: 26px;
+    background:
+        linear-gradient(180deg, rgba(28, 28, 34, 0.92), rgba(10, 10, 12, 0.98));
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 20px 45px rgba(0, 0, 0, 0.28);
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
-.gallery-slide:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+.gallery-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0) 45%,
+            rgba(0, 0, 0, 0.22) 100%
+        );
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+.gallery-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 28px 60px rgba(0, 0, 0, 0.4);
 }
 
 .gallery-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.gallery-slider .slider-btn {
-    font-size: 34px;
-    color: #ff0000;
-}
-
-.gallery-slider .slider-btn:hover {
-    color: #cc0000;
 }
 
 /* Contacts Section */
@@ -825,13 +821,12 @@ section h2 {
     }
 
     .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
     }
 
-    .gallery-slide {
-        width: 300px;
-        height: 225px;
-        font-size: 20px;
+    .gallery-card {
+        min-height: 260px;
     }
 
     .about-name span {
@@ -874,9 +869,7 @@ section h2 {
         grid-template-columns: 1fr;
     }
 
-    .gallery-slide {
-        width: 250px;
-        height: 200px;
-        font-size: 18px;
+    .gallery-card {
+        min-height: 300px;
     }
 }

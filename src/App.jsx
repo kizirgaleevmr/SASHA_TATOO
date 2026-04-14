@@ -58,12 +58,7 @@ function App() {
     // Преобразование в массив URL
     const images = Object.values(imageModules).map((module) => module.default);
 
-    const gallerySlides = images.map((image) => ({
-        image,
-    }));
-
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [gallerySlide, setGallerySlide] = useState(0);
 
     const slides = [
         {
@@ -87,32 +82,6 @@ function App() {
 
         return () => clearInterval(interval);
     }, [slides.length]);
-
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
-    };
-
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    };
-
-    const nextGallerySlide = () => {
-        setGallerySlide((prev) => (prev + 1) % gallerySlides.length);
-    };
-
-    const prevGallerySlide = () => {
-        setGallerySlide(
-            (prev) => (prev - 1 + gallerySlides.length) % gallerySlides.length,
-        );
-    };
-
-    useEffect(() => {
-        const galleryInterval = setInterval(() => {
-            setGallerySlide((prev) => (prev + 1) % gallerySlides.length);
-        }, 3500);
-
-        return () => clearInterval(galleryInterval);
-    }, [gallerySlides.length]);
 
     return (
         <>
@@ -243,22 +212,19 @@ function App() {
 
             <section id="gallery" className="gallery-section">
                 <h2>Галерея работ</h2>
-                <div className="gallery-slider">
-                    <div key={gallerySlide} className="gallery-slide fade-in">
-                        <img
-                            src={gallerySlides[gallerySlide].image}
-                            alt={`Галерея ${gallerySlide + 1}`}
-                            className="gallery-image"
-                        />
-                    </div>
-                </div>
-                <div className="slider-dots">
-                    {gallerySlides.map((_, index) => (
-                        <span
-                            key={index}
-                            className={`dot ${index === gallerySlide ? "active" : ""}`}
-                            onClick={() => setGallerySlide(index)}
-                        ></span>
+                <p className="gallery-lead">
+                    Подборка работ в черно-белой графике с акцентом на
+                    композицию, контраст и анатомию.
+                </p>
+                <div className="gallery-grid">
+                    {images.map((image, index) => (
+                        <div key={image} className="gallery-card fade-in">
+                            <img
+                                src={image}
+                                alt={`Работа ${index + 1}`}
+                                className="gallery-image"
+                            />
+                        </div>
                     ))}
                 </div>
             </section>
