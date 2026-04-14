@@ -8,6 +8,46 @@ import slide4 from "./assets/gallery/gallery_4.jpeg";
 // Импорт всех JPEG изображений из папки gallery
 //
 
+const services = [
+    {
+        title: "Татуировки",
+        description:
+            "Черно-белая графика с вниманием к пластике тела, композиции и контрасту.",
+        icon: (
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18.4 3.8c1.6 1.6 1.6 4.2 0 5.8l-2.5 2.5-5.8-5.8 2.5-2.5c1.6-1.6 4.2-1.6 5.8 0Z" />
+                <path d="m9 7.2 5.8 5.8-6.9 6.9a3.2 3.2 0 0 1-2 1l-2.1.2.2-2.1a3.2 3.2 0 0 1 1-2L9 7.2Z" />
+                <path d="m13.2 5.3 5.5 5.5" />
+            </svg>
+        ),
+    },
+    {
+        title: "Коррекция",
+        description:
+            "Обновление старых работ, усиление глубины, деталей и общего характера татуировки.",
+        icon: (
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 14c2.2-3.8 5.3-5.7 9.2-5.7 2.6 0 4.9.8 6.8 2.4" />
+                <path d="m17 4 3 6-6 .2" />
+                <path d="M20 10c-2.2 3.8-5.3 5.7-9.2 5.7-2.6 0-4.9-.8-6.8-2.4" />
+                <path d="m7 20-3-6 6-.2" />
+            </svg>
+        ),
+    },
+    {
+        title: "Консультации",
+        description:
+            "Помощь с идеей, размещением, масштабом и подготовкой к сеансу без лишнего стресса.",
+        icon: (
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 18h-.1a7 7 0 1 1 6.7-8.9A7 7 0 0 1 12 18Z" />
+                <path d="M9.4 9.3a2.7 2.7 0 0 1 5.2 1c0 1.8-2 2.4-2.6 3.6" />
+                <path d="M12 17.2v.1" />
+            </svg>
+        ),
+    },
+];
+
 function App() {
     const imageModules = import.meta.glob("./assets/gallery/*.jpeg", {
         eager: true,
@@ -75,9 +115,9 @@ function App() {
     return (
         <>
             <header className="header">
-                <h1>TATOO SALON</h1>
+                <h1>sashadark.tatts</h1>
                 <nav>
-                    <a href="#about">О нас</a>
+                    <a href="#about">О мастере</a>
                     <a href="#services">Услуги</a>
                     <a href="#gallery">Галерея</a>
                     <a href="#contacts">Контакты</a>
@@ -119,26 +159,23 @@ function App() {
             </section>
 
             <section id="about" className="about-section">
-                <h2>О нас</h2>
+                <h2>О мастере</h2>
                 <div className="about-content">
                     <div className="about-text">
-                        <p>
-                            Наш тату-салон специализируется на создании
-                            уникальных татуировок в темных тонах. Мы используем
-                            только высококачественные чернила и современное
-                            оборудование.
+                        <p className="about-name">
+                            Мастер <span>Александр</span>
                         </p>
                         <p>
-                            Наша команда мастеров имеет многолетний опыт и
-                            внимательный подход к каждому клиенту. Мы создаем
-                            индивидуальные эскизы и делаем работу максимально
-                            комфортной и безопасной.
+                            Для меня татуировка — это по большей части
+                            украшение, которое дополняет и подчеркивает твою
+                            анатомию тела при правильном расположении и размере.
                         </p>
-                        <ul>
-                            <li>Эксклюзивные авторские дизайны</li>
-                            <li>Чистота и современные материалы</li>
-                            <li>Поддержка на всех этапах</li>
-                        </ul>
+                        <p>
+                            Я работаю исключительно в черно-белой графике со
+                            своей стилизацией, люблю мрачные сюжеты и считаю,
+                            что контраст в работах — залог успеха.
+                        </p>
+                        <p>Так же участвую в тату конвенциях 5 лет.</p>
                     </div>
                     <div className="about-image-wrapper">
                         <img
@@ -152,31 +189,18 @@ function App() {
 
             <section id="services" className="services-section">
                 <h2>Услуги</h2>
+                <p className="services-lead">
+                    Каждая работа собирается под анатомию, настроение и ритм
+                    будущей татуировки.
+                </p>
                 <div className="services-grid">
-                    <div className="service-item">
-                        <div className="service-icon">🎨</div>
-                        <h3>Татуировки</h3>
-                        <p>
-                            Полноцветные и черно-белые татуировки любого стиля и
-                            сложности.
-                        </p>
-                    </div>
-                    <div className="service-item">
-                        <div className="service-icon">🛠️</div>
-                        <h3>Коррекция</h3>
-                        <p>
-                            Исправление старых татуировок, добавление деталей
-                            или изменение дизайна.
-                        </p>
-                    </div>
-                    <div className="service-item">
-                        <div className="service-icon">💬</div>
-                        <h3>Консультации</h3>
-                        <p>
-                            Бесплатные консультации по выбору дизайна и
-                            подготовке к процедуре.
-                        </p>
-                    </div>
+                    {services.map((service) => (
+                        <div key={service.title} className="service-item">
+                            <div className="service-icon">{service.icon}</div>
+                            <h3>{service.title}</h3>
+                            <p>{service.description}</p>
+                        </div>
+                    ))}
                 </div>
             </section>
 
@@ -206,16 +230,73 @@ function App() {
                 <h2>Контакты</h2>
                 <div className="contact-grid">
                     <div className="contacts-info">
-                        <p>Адрес: ул. Примерная, 123, Москва</p>
-                        <p>Телефон: +7 (123) 456-78-90</p>
-                        <p>Email: info@tatoo-salon.ru</p>
-                        <p>Instagram: @tatoo_salon</p>
+                        <p>Адрес: г. Уфа, ул. Заки Валиди 5</p>
+                        <p className="contact-social">
+                            <a
+                                href="tel:+79373404490"
+                                aria-label="Телефон +7 937 340 44 90"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M6.6 3.5h3l1.3 4.1-1.8 1.8a16.5 16.5 0 0 0 5.5 5.5l1.8-1.8 4.1 1.3v3a1.9 1.9 0 0 1-2.1 1.9A16.9 16.9 0 0 1 4.7 5.6 1.9 1.9 0 0 1 6.6 3.5Z" />
+                                </svg>
+                                <span>+7 937 340 44 90</span>
+                            </a>
+                        </p>
+                        <p className="contact-social">
+                            <a
+                                href="https://www.instagram.com/sashadark.tatts/"
+                                target="_blank"
+                                rel="noreferrer"
+                                aria-label="Instagram sashadark.tatts"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <rect
+                                        x="3.5"
+                                        y="3.5"
+                                        width="17"
+                                        height="17"
+                                        rx="5"
+                                    />
+                                    <circle cx="12" cy="12" r="4.2" />
+                                    <circle cx="17.4" cy="6.7" r="1.1" />
+                                </svg>
+                                <span>@sashadark.tatts</span>
+                            </a>
+                        </p>
+                        <p className="contact-social">
+                            <a
+                                href="https://t.me/sashatattoodark"
+                                target="_blank"
+                                rel="noreferrer"
+                                aria-label="Telegram @sashatattoodark"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M21.4 4.6 18.3 19c-.2 1-.8 1.3-1.6.8l-4.5-3.3-2.2 2.1c-.2.2-.4.4-.8.4l.3-4.6 8.4-7.6c.4-.3-.1-.5-.5-.2l-10.4 6.5-4.5-1.4c-1-.3-1-.9.2-1.4L20 3.7c.8-.3 1.6.2 1.4.9Z" />
+                                </svg>
+                                <span>
+                                    Запись - консультация · @sashatattoodark
+                                </span>
+                            </a>
+                        </p>
+                        <p className="contact-social">
+                            <a
+                                href="https://t.me/sashadarktatts"
+                                target="_blank"
+                                rel="noreferrer"
+                                aria-label="Telegram канал с работами @sashadarktatts"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M21.4 4.6 18.3 19c-.2 1-.8 1.3-1.6.8l-4.5-3.3-2.2 2.1c-.2.2-.4.4-.8.4l.3-4.6 8.4-7.6c.4-.3-.1-.5-.5-.2l-10.4 6.5-4.5-1.4c-1-.3-1-.9.2-1.4L20 3.7c.8-.3 1.6.2 1.4.9Z" />
+                                </svg>
+                                <span>Портфолио · @sashadarktatts</span>
+                            </a>
+                        </p>
                     </div>
                     <div className="contact-map-wrapper">
                         <iframe
                             title="TATOO Salon map"
                             className="contact-map"
-                            src="https://www.openstreetmap.org/export/embed.html?bbox=37.6180%2C55.7540%2C37.6280%2C55.7600&layer=mapnik&marker=55.7570%2C37.6230"
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=55.9248%2C54.7191%2C55.9348%2C54.7251&layer=mapnik&marker=54.7221%2C55.9298"
                             loading="lazy"
                         ></iframe>
                     </div>
