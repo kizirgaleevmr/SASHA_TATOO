@@ -49,6 +49,8 @@ const services = [
 ];
 
 function App() {
+    const telegramLink = "https://t.me/sashatattoodark";
+
     const imageModules = import.meta.glob("./assets/gallery/*.jpeg", {
         eager: true,
     });
@@ -121,6 +123,14 @@ function App() {
                     <a href="#services">Услуги</a>
                     <a href="#gallery">Галерея</a>
                     <a href="#contacts">Контакты</a>
+                    <a
+                        href={telegramLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="header-cta"
+                    >
+                        Записаться
+                    </a>
                 </nav>
             </header>
 
@@ -154,7 +164,14 @@ function App() {
                         Профессиональные татуировки в темном стиле. Опытные
                         мастера, качественные материалы, индивидуальный подход.
                     </p>
-                    <button className="cta-button fade-in">Записаться</button>
+                    {/* <a
+                        href={telegramLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="cta-button fade-in"
+                    >
+                        Записаться
+                    </a> */}
                 </div>
             </section>
 
@@ -201,6 +218,26 @@ function App() {
                             <p>{service.description}</p>
                         </div>
                     ))}
+                </div>
+            </section>
+
+            <section className="pricing-section">
+                <div className="pricing-card">
+                    <p className="pricing-kicker">Стоимость</p>
+                    <h2>10-20 тыс. ₽</h2>
+                    <p className="pricing-text">
+                        Итоговая цена зависит от размера, сложности эскиза,
+                        детализации и места нанесения. Точную стоимость
+                        Александр подскажет после короткого обсуждения идеи.
+                    </p>
+                    <a
+                        href={telegramLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="pricing-button"
+                    >
+                        Обсудить идею в Telegram
+                    </a>
                 </div>
             </section>
 
